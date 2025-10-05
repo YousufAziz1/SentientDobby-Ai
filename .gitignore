@@ -1,0 +1,20 @@
+# Node/JS
+node_modules/
+.npm/
+.yarn/
+.pnpm-store/
+dist/
+build/
+.next/
+.out/
+.vercel/
+
+# Logs/coverage
+*.log
+logs/
+coverage/
+
+# Env/OS
+.env*
+.DS_Store
+Thumbs.db
