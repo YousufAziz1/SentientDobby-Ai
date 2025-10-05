@@ -1,22 +1,14 @@
 "use client";
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Header from '../../components/Header';
 import ChatSidebar, { Chat } from '../../components/ChatSidebar';
 import ChatWindow from '../../components/ChatWindow';
-import { useAuth } from '../../context/AuthContext';
-import { useRouter } from 'next/navigation';
 
 export default function DashboardPage() {
-  const { token, loading } = useAuth();
-  const router = useRouter();
+  // Make dashboard publicly accessible (no auth gating)
+  const token = null;
   const [model, setModel] = useState<string>('openai/gpt-4o-mini');
   const [activeChat, setActiveChat] = useState<Chat | null>(null);
-
-  useEffect(() => {
-    if (!loading && !token) router.replace('/login');
-  }, [token, loading, router]);
-
-  if (!token) return null;
 
   return (
     <div className="min-h-screen flex flex-col bg-hero-gradient dark:bg-hero-gradient-dark">
